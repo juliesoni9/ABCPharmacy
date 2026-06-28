@@ -3,6 +3,12 @@ using PharmacyApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var port = Environment.GetEnvironmentVariable("PORT");
+if (!string.IsNullOrEmpty(port))
+{
+    builder.WebHost.UseUrls($"http://+:{port}");
+}
+
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
@@ -28,11 +34,13 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.UseCors("AngularApp");
 }
 
-app.UseCors("AngularApp");
-app.UseHttpsRedirection();
-app.UseAuthorization();
+app.UseDefaultFiles();
+app.UseStaticFiles();
+
 app.MapControllers();
+app.MapFallbackToFile("index.html");
 
 app.Run();

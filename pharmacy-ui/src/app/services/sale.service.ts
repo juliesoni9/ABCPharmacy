@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { CreateSaleRequest, SaleRecord } from '../models/sale.model';
+import { environment } from '../../environments/environment';
 
-const API_BASE = 'http://localhost:5151/api';
+const API_BASE = environment.apiUrl;
 
 @Injectable({ providedIn: 'root' })
 export class SaleService {

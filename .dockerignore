@@ -1,0 +1,8 @@
+node_modules
+pharmacy-ui/node_modules
+pharmacy-ui/dist
+pharmacy-ui/.angular
+**/bin
+**/obj
+.git
+.vs

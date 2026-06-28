@@ -112,3 +112,18 @@ Then open Preview (or your browser) and enter: **http://localhost:4200**
 ## Sample Data
 
 The API ships with three sample medicines in `PharmacyApi/Data/medicines.json` for demonstration.
+
+---
+
+## Deploy to Render (free public URL)
+
+The app is configured for **single-URL hosting**: the API serves the Angular UI and REST endpoints together.
+
+1. Sign up at [render.com](https://render.com) and connect your GitHub account.
+2. Click **New +** → **Blueprint**.
+3. Select the `juliesoni9/ABCPharmacy` repository.
+4. Render reads `render.yaml` and creates the **abc-pharmacy** web service.
+5. Click **Apply** and wait for the Docker build to finish (~5–10 minutes).
+6. Open your live URL, e.g. `https://abc-pharmacy.onrender.com`.
+
+> **Note:** On Render's free tier the app sleeps after inactivity; the first visit may take ~30 seconds to wake up. JSON data may reset when the service redeploys.

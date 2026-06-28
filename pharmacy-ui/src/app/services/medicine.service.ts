@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { CreateMedicineRequest, Medicine } from '../models/medicine.model';
+import { environment } from '../../environments/environment';
 
-const API_BASE = 'http://localhost:5151/api';
+const API_BASE = environment.apiUrl;
 
 @Injectable({ providedIn: 'root' })
 export class MedicineService {
