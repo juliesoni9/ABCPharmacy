@@ -28,8 +28,8 @@
               <td>{{ formatDate(sale.saleDate) }}</td>
               <td>{{ sale.medicineName }}</td>
               <td>{{ sale.quantitySold }}</td>
-              <td>${{ formatPrice(sale.unitPrice) }}</td>
-              <td>${{ formatPrice(sale.totalPrice) }}</td>
+              <td>₹{{ formatPrice(sale.unitPrice) }}</td>
+              <td>₹{{ formatPrice(sale.totalPrice) }}</td>
             </tr>
           }
         </tbody>

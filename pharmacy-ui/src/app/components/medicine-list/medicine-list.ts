@@ -120,7 +120,7 @@ export class MedicineListComponent implements OnInit {
     this.saleService.recordSale({ medicineId: medicine.id, quantitySold: qty }).subscribe({
       next: (sale) => {
         this.saleSuccess.set(
-          `Sale recorded: ${sale.quantitySold} x ${sale.medicineName} ($${sale.totalPrice.toFixed(2)})`
+          `Sale recorded: ${sale.quantitySold} x ${sale.medicineName} (₹${sale.totalPrice.toFixed(2)})`
         );
         this.saleMedicineId.set(null);
         this.loadMedicines();

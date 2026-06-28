@@ -63,7 +63,7 @@
               <td>{{ medicine.brand }}</td>
               <td>{{ formatDate(medicine.expiryDate) }}</td>
               <td>{{ medicine.quantity }}</td>
-              <td>${{ formatPrice(medicine.price) }}</td>
+              <td>₹{{ formatPrice(medicine.price) }}</td>
               <td>
                 @if (saleMedicineId() === medicine.id) {
                   <div class="sale-form-inline">
