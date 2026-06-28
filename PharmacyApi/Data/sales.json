@@ -1,0 +1,11 @@
+[
+  {
+    "id": "9e5064c2-2e71-4084-a2f6-c3d712cb3a9e",
+    "medicineId": "c3d4e5f6-a7b8-9012-cdef-123456789012",
+    "medicineName": "Ibuprofen 200mg",
+    "quantitySold": 80,
+    "unitPrice": 8.75,
+    "totalPrice": 700.00,
+    "saleDate": "2026-06-26T07:12:00.8806534Z"
+  }
+]

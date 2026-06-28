@@ -1,0 +1,105 @@
+<div class="medicine-list">
+  <header class="page-header">
+    <div>
+      <h1>ABC Pharmacy</h1>
+      <p class="subtitle">Medicine Inventory Management</p>
+    </div>
+    <button type="button" class="btn btn-primary" (click)="toggleAddForm()">
+      {{ showAddForm() ? 'Cancel' : '+ Add Medicine' }}
+    </button>
+  </header>
+
+  @if (showAddForm()) {
+    <app-medicine-form (saved)="onMedicineAdded()" (cancelled)="toggleAddForm()" />
+  }
+
+  @if (saleSuccess()) {
+    <div class="alert alert-success">{{ saleSuccess() }}</div>
+  }
+
+  <section class="search-section">
+    <input
+      type="text"
+      class="search-input"
+      placeholder="Search by medicine name..."
+      [ngModel]="searchTerm()"
+      (ngModelChange)="searchTerm.set($event)"
+      (keyup.enter)="onSearch()"
+    />
+    <button type="button" class="btn btn-secondary" (click)="onSearch()">Search</button>
+    @if (searchTerm()) {
+      <button type="button" class="btn btn-link" (click)="clearSearch()">Clear</button>
+    }
+  </section>
+
+  <div class="legend">
+    <span class="legend-item legend-expiring">Expiring within 30 days</span>
+    <span class="legend-item legend-low-stock">Quantity below 10</span>
+  </div>
+
+  @if (loading()) {
+    <p class="status-message">Loading medicines...</p>
+  } @else if (error()) {
+    <p class="status-message error">{{ error() }}</p>
+  } @else if (medicines().length === 0) {
+    <p class="status-message">No medicines found.</p>
+  } @else {
+    <div class="table-wrapper">
+      <table class="medicine-grid">
+        <thead>
+          <tr>
+            <th>Full Name</th>
+            <th>Brand</th>
+            <th>Expiry Date</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (medicine of medicines(); track medicine.id) {
+            <tr [class]="'row-' + getRowStatus(medicine)">
+              <td>{{ medicine.fullName }}</td>
+              <td>{{ medicine.brand }}</td>
+              <td>{{ formatDate(medicine.expiryDate) }}</td>
+              <td>{{ medicine.quantity }}</td>
+              <td>${{ formatPrice(medicine.price) }}</td>
+              <td>
+                @if (saleMedicineId() === medicine.id) {
+                  <div class="sale-form-inline">
+                    <input
+                      type="number"
+                      min="1"
+                      [max]="medicine.quantity"
+                      [ngModel]="saleQuantity()"
+                      (ngModelChange)="saleQuantity.set($event)"
+                      class="sale-qty-input"
+                    />
+                    <button type="button" class="btn btn-sm btn-primary" (click)="submitSale(medicine)">
+                      Confirm
+                    </button>
+                    <button type="button" class="btn btn-sm btn-secondary" (click)="cancelSale()">
+                      Cancel
+                    </button>
+                  </div>
+                  @if (saleError()) {
+                    <div class="sale-error">{{ saleError() }}</div>
+                  }
+                } @else {
+                  <button
+                    type="button"
+                    class="btn btn-sm btn-sale"
+                    [disabled]="medicine.quantity === 0"
+                    (click)="openSaleForm(medicine.id)"
+                  >
+                    Record Sale
+                  </button>
+                }
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

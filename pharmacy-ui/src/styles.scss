@@ -1,0 +1,74 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: #f1f5f9;
+  color: #1e293b;
+  line-height: 1.5;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.btn-primary {
+  background: #2563eb;
+  color: #fff;
+
+  &:hover:not(:disabled) {
+    background: #1d4ed8;
+  }
+}
+
+.btn-secondary {
+  background: #e2e8f0;
+  color: #334155;
+
+  &:hover:not(:disabled) {
+    background: #cbd5e1;
+  }
+}
+
+.btn-sale {
+  background: #059669;
+  color: #fff;
+
+  &:hover:not(:disabled) {
+    background: #047857;
+  }
+}
+
+.btn-link {
+  background: transparent;
+  color: #2563eb;
+  text-decoration: underline;
+  padding: 0.5rem;
+
+  &:hover {
+    color: #1d4ed8;
+  }
+}
+
+.btn-sm {
+  padding: 0.35rem 0.65rem;
+  font-size: 0.8rem;
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "fullName": "Paracetamol 500mg",
+    "notes": "Store in a cool, dry place",
+    "expiryDate": "2026-07-15",
+    "quantity": 5,
+    "price": 12.50,
+    "brand": "Tylenol"
+  },
+  {
+    "id": "b2c3d4e5-f6a7-8901-bcde-f12345678901",
+    "fullName": "Amoxicillin 250mg",
+    "notes": "Prescription required",
+    "expiryDate": "2027-03-20",
+    "quantity": 120,
+    "price": 45.99,
+    "brand": "Amoxil"
+  },
+  {
+    "id": "c3d4e5f6-a7b8-9012-cdef-123456789012",
+    "fullName": "Ibuprofen 200mg",
+    "notes": "Take with food",
+    "expiryDate": "2026-08-01",
+    "quantity": 5,
+    "price": 8.75,
+    "brand": "Advil"
+  },
+  {
+    "id": "bcb54994-0e0d-41ed-a611-692617678770",
+    "fullName": "Combiflame",
+    "notes": "",
+    "expiryDate": "2027-02-26",
+    "quantity": 50,
+    "price": 10,
+    "brand": "ABC"
+  },
+  {
+    "id": "113d9878-7976-4c05-9657-0b4ef188d402",
+    "fullName": "Combiflame",
+    "notes": "",
+    "expiryDate": "2027-02-26",
+    "quantity": 50,
+    "price": 10,
+    "brand": "ABC"
+  }
+]
